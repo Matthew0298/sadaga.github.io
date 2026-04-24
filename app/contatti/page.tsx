@@ -134,7 +134,7 @@ export default function Contatti() {
 
         <button
           type="submit"
-          className="w-full px-6 py-3 bg-slate-900 text-white font-semibold rounded hover:bg-slate-800 transition"
+          className="w-full px-6 py-3 bg-accent text-white font-semibold rounded-lg hover:opacity-90 transition"
         >
           Invia messaggio
         </button>

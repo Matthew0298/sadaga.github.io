@@ -42,7 +42,7 @@ export default function Eventi() {
   const pastEvents = events.filter((e) => e.status === 'past');
 
   const EventCard = ({ event }: { event: typeof events[0] }) => (
-    <div className="bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition">
+    <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-all duration-200">
       <div className="flex justify-between items-start mb-4">
         <div>
           <h3 className="text-xl font-bold text-slate-900">{event.title}</h3>

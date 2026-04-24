@@ -3,7 +3,7 @@ export default function Eventi() {
     {
       id: 1,
       title: 'Lettura Pubblica Mensile',
-      date: '15 Maggio 2024',
+      date: '15 Maggio 2026',
       time: '18:30',
       location: 'Centro Culturale',
       description: 'Ascolta gli autori del nostro gruppo leggere le loro opere inedite.',
@@ -12,7 +12,7 @@ export default function Eventi() {
     {
       id: 2,
       title: 'Workshop: Tecniche di Scrittura Creativa',
-      date: '22 Maggio 2024',
+      date: '22 Maggio 2026',
       time: '19:00',
       location: 'Biblioteca Civica',
       description: 'Impara le tecniche fondamentali della scrittura creativa con esperti del settore.',
@@ -21,7 +21,7 @@ export default function Eventi() {
     {
       id: 3,
       title: 'Incontro con Autore Ospite',
-      date: '5 Giugno 2024',
+      date: '5 Giugno 2026',
       time: '17:00',
       location: 'Sala Conferenze',
       description: 'Incontra un autore affermato e scopri il suo processo creativo.',
@@ -30,7 +30,7 @@ export default function Eventi() {
     {
       id: 4,
       title: 'Club di Lettura: "Classici del Novecento"',
-      date: '12 Aprile 2024',
+      date: '12 Aprile 2026',
       time: '17:00',
       location: 'Centro Culturale',
       description: 'Discussione e analisi di capolavori della letteratura italiana del Novecento.',
@@ -104,22 +104,6 @@ export default function Eventi() {
         </section>
       )}
 
-      <section className="mt-16 bg-slate-50 rounded-lg p-8 border border-slate-200">
-        <h2 className="text-2xl font-bold text-slate-900 mb-4">Ricevi notifiche</h2>
-        <p className="text-slate-600 mb-4">
-          Non perderti nessun evento! Iscriviti per ricevere notifiche sui nuovi appuntamenti di Sadaga.
-        </p>
-        <div className="flex gap-2">
-          <input
-            type="email"
-            placeholder="Inserisci la tua email"
-            className="flex-1 px-4 py-2 border border-slate-300 rounded outline-none focus:border-slate-900 focus:ring-2 focus:ring-slate-100"
-          />
-          <button className="px-6 py-2 bg-slate-900 text-white rounded hover:bg-slate-800 transition font-semibold">
-            Iscriviti
-          </button>
-        </div>
-      </section>
     </div>
   );
 }

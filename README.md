@@ -222,7 +222,7 @@ npm run build
 
 ## Licenza
 
-© 2024 Sadaga - Gruppo Letterario
+© 2026 Sadaga - Gruppo Letterario
 
 ## Supporto
 

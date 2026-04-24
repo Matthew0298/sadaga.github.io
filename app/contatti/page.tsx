@@ -143,7 +143,7 @@ export default function Contatti() {
       <div className="mt-12 pt-8 border-t border-slate-200">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">Altre informazioni</h2>
         <p className="text-slate-600 mb-2">
-          Email: <span className="font-semibold text-slate-900">info@sadaga.it</span>
+          Email: <span className="font-semibold text-slate-900">grupposadaga@libero.it</span>
         </p>
         <p className="text-slate-600">
           Seguici sui social per rimanere aggiornato sui nostri eventi e attività.

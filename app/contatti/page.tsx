@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import emailjs from "@emailjs/browser";
 
 export default function Contatti() {
   const [formData, setFormData] = useState({
     nome: '',
     cognome: '',
     email: '',
+    message: '',
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [submitted, setSubmitted] = useState(false);
@@ -28,35 +30,48 @@ export default function Contatti() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const newErrors: { [key: string]: string } = {};
 
-    if (!formData.nome.trim()) {
-      newErrors.nome = 'Il nome è obbligatorio';
-    }
-    if (!formData.cognome.trim()) {
-      newErrors.cognome = 'Il cognome è obbligatorio';
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = 'L\'email è obbligatoria';
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Inserisci un\'email valida';
-    }
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
+  const newErrors: { [key: string]: string } = {};
 
-    // Simulate form submission
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setFormData({ nome: '', cognome: '', email: '' });
+  if (!formData.nome.trim()) newErrors.nome = "Il nome è obbligatorio";
+  if (!formData.message.trim()) {
+  newErrors.message = 'Il messaggio è obbligatorio';
+}
+  if (!formData.cognome.trim()) newErrors.cognome = "Il cognome è obbligatorio";
+  if (!formData.email.trim()) {
+    newErrors.email = "Email obbligatoria";
+  } else if (!emailRegex.test(formData.email)) {
+    newErrors.email = "Email non valida";
+  }
 
-    // Reset success message after 3 seconds
-    setTimeout(() => setSubmitted(false), 3000);
-  };
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors);
+    return;
+  }
+
+  emailjs
+    .send(
+      "service_k6b692l",      
+      "template_59fwo4h",         
+      {
+        nome: formData.nome,
+        cognome: formData.cognome,
+        email: formData.email,
+        message: formData.message,
+      },
+      "s04vy0LfHDfL-LCoI"           
+    )
+    .then(() => {
+      setSubmitted(true);
+      setFormData({ nome: '', cognome: '', email: '', message: '' });
+    })
+    .catch((error) => {
+      console.error("Errore invio email:", error);
+    });
+};
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -130,6 +145,30 @@ export default function Contatti() {
             placeholder="esempio@email.com"
           />
           {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+        </div>
+
+        <div>
+          <label className="block text-sm font-semibold text-slate-900 mb-2">
+            Messaggio *
+          </label>
+
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={(e) =>
+              setFormData({ ...formData, message: e.target.value })
+            }
+            className={`w-full px-4 py-2 border rounded outline-none transition h-32 ${
+              errors.message
+                ? 'border-red-500 focus:border-red-500'
+                : 'border-slate-300 focus:border-slate-900'
+            }`}
+            placeholder="Scrivi il tuo messaggio..."
+          />
+
+          {errors.message && (
+            <p className="text-red-600 text-sm mt-1">{errors.message}</p>
+          )}
         </div>
 
         <button

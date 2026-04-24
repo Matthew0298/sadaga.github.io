@@ -1,7 +1,7 @@
 const nextConfig = {
   output: 'export',
-  basePath: '',
-  assetPrefix: '',
+  basePath: "/sadaga.github.io",
+  assetPrefix: "/sadaga.github.io/",
   images: {
     unoptimized: true,
   },

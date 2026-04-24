@@ -1,27 +1,29 @@
+import { FaInstagram, FaYoutube, FaTiktok } from "react-icons/fa";
+
 export default function Social() {
   const socials = [
-    {
-      name: 'Instagram',
-      description: 'Segui le nostre storie, foto e aggiornamenti dai nostri eventi.',
-      icon: '📸',
-      url: '#',
-      color: 'bg-gradient-to-r from-pink-500 to-purple-500',
-    },
-    {
-      name: 'YouTube',
-      description: 'Guarda i video dei nostri eventi, letture pubbliche e workshop.',
-      icon: '▶️',
-      url: '#',
-      color: 'bg-red-600',
-    },
-    {
-      name: 'Facebook',
-      description: 'Resta aggiornato su notizie, eventi e discussioni della comunità.',
-      icon: 'f',
-      url: '#',
-      color: 'bg-blue-600',
-    },
-  ];
+  {
+    name: "Instagram",
+    description: "Segui le nostre storie, foto e aggiornamenti dai nostri eventi.",
+    icon: <FaInstagram />,
+    url: "https://www.instagram.com/sadaga_group",
+    color: "bg-[radial-gradient(circle_at_30%_30%,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5)]",
+  },
+  {
+    name: "YouTube",
+    description: "Guarda i video dei nostri eventi, letture pubbliche e workshop.",
+    icon: <FaYoutube />,
+    url: "https://www.youtube.com/@sadaga_group",
+    color: "bg-red-600",
+  },
+  {
+    name: "TikTok",
+    description: "Scopri i nostri contenuti brevi e behind-the-scenes.",
+    icon: <FaTiktok />,
+    url: "https://www.tiktok.com/@sadaga_group",
+    color: "bg-black",
+  },
+];
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -35,9 +37,9 @@ export default function Social() {
           <a
             key={index}
             href={social.url}
-            className="group bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition transform hover:-translate-y-1"
+            className="group bg-white border border-slate-200 rounded-lg p-6 hover:shadow-lg transition transform hover:-translate-y-1 text-center"
           >
-            <div className={`${social.color} text-white text-4xl font-bold w-12 h-12 rounded flex items-center justify-center mb-4`}>
+            <div className={`${social.color} w-12 h-12 rounded-lg flex items-center justify-center mb-4 text-2xl text-white group-hover:scale-110 transition mx-auto`}>
               {social.icon}
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-2">{social.name}</h3>
@@ -72,23 +74,6 @@ export default function Social() {
             <span>Accedere a contenuti esclusivi e dietro le quinte</span>
           </li>
         </ul>
-      </section>
-
-      <section className="mt-12 bg-slate-900 text-white rounded-lg p-8">
-        <h2 className="text-2xl font-bold mb-4">Newsletter</h2>
-        <p className="text-slate-300 mb-6">
-          Iscriviti alla nostra newsletter per ricevere direttamente via email gli aggiornamenti sui prossimi eventi e le novità da Sadaga.
-        </p>
-        <div className="flex gap-2">
-          <input
-            type="email"
-            placeholder="Inserisci la tua email"
-            className="flex-1 px-4 py-2 rounded text-slate-900 outline-none"
-          />
-          <button className="px-6 py-2 bg-slate-700 hover:bg-slate-600 rounded transition font-semibold">
-            Iscriviti
-          </button>
-        </div>
       </section>
     </div>
   );

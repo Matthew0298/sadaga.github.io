@@ -13,6 +13,35 @@ export default function Contatti() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [submitted, setSubmitted] = useState(false);
 
+  const allowedDomains = [
+  // Global
+  "gmail.com",
+  "outlook.com",
+  "hotmail.com",
+  "yahoo.com",
+  "icloud.com",
+
+  // Italia
+  "libero.it",
+  "virgilio.it",
+  "tiscali.it",
+  "alice.it",
+  "tim.it",
+  "fastwebnet.it",
+
+  // Europa comuni
+  "gmx.de",
+  "gmx.com",
+  "web.de",
+  "orange.fr",
+  "wanadoo.fr",
+  "laposte.net",
+
+  // Business generici
+  "proton.me",
+  "protonmail.com",
+];
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,8 +73,14 @@ const handleSubmit = (e: React.FormEvent) => {
   if (!formData.email.trim()) {
     newErrors.email = "Email obbligatoria";
   } else if (!emailRegex.test(formData.email)) {
-    newErrors.email = "Email non valida";
+  newErrors.email = "Email non valida";
+} else {
+  const domain = formData.email.split("@")[1].toLowerCase();
+
+  if (!allowedDomains.includes(domain)) {
+    newErrors.email = "Inserisci un'email valida (Gmail, Outlook, Libero, ecc.)";
   }
+}
 
   if (Object.keys(newErrors).length > 0) {
     setErrors(newErrors);

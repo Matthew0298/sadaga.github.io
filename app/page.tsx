@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { BookOpen, Users, Calendar, ArrowRight, Sparkles, ExternalLink } from "lucide-react";
@@ -36,7 +36,7 @@ export default function Home() {
       title: "La sottile arte di fare i FR**I col culo degli altri: Storie, Poesie e Cose",
       author: "Davide Lorusso",
       description: "Nel volume conclusivo, qui, troverete la storia di Freddy. Il povero Fred è nato dall’incrocio tra un uroboro dissenterico e un leghista cieco. Gli hobby preferiti di Fred sono: piantare chiodi nel muro utilizzando la fronte, ridurre tutto a uno stereotipo culturale e, nel fine settimana, pontificare sui conflitti internazionali.",
-      link: "https://www.amazon.it/SOTTILE-ARTE-FARE-DEGLI-ALTRI/dp/B0G4KRBX3D/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2V5RUQLB9XKR0&dib=eyJ2IjoiMSJ9.YhHUksQTEcqhLlO5ZMUxGcC8onPa22lZ77Lo_gR31zs.WhqARMygVMk35laiY3FYn6kiPuXTyum0nBB0V5qx3EQ&dib_tag=se&keywords=davide+lorusso&qid=1777061781&sprefix=davide+lorusso%2Caps%2C251&sr=8-1"
+      link: "https://www.amazon.it/SOTTILE-ARTE-FARE-DEGLI-ALTRI/dp/B0G4KRBX3D/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2V5RUQLB9XKR0&dib=eyJ2IjoiMSJ9.YhHUksQTEcqhLlO5ZMUxGcC8onPa22lZ77Lo_gR31zs.WhqARMygVMk35laiY3FYn6kiPuXTyum0nBB0V5qx3EQ&dib_tag=se&keywords=davide+lorusso&qid=1777061781&sprefix=davide+lorusso%2Caps%2C251&sr=8-1",
     },
     {
       title: "LE OMBRE ALLA SERA: Digressioni ed Esequie vol. 2",
@@ -51,132 +51,123 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="space-y-16 font-serif">
-      {/* Hero Section - Stretta e con font letterario */}
-      <section className={`text-center py-16 sm:py-20 bg-gradient-to-br from-primary/5 via-accent/5 to-soft rounded-2xl relative overflow-hidden transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
-        <div className="absolute top-8 right-8 w-24 h-24 bg-accent/10 rounded-full blur-3xl hidden sm:block" />
-        <div className="absolute bottom-8 left-8 w-32 h-32 bg-primary/10 rounded-full blur-3xl hidden sm:block" />
-
-        <div className="relative z-10 px-4 sm:px-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur rounded-full mb-4 sm:mb-6 shadow-sm">
-            <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-xs sm:text-sm font-medium text-slate-700">
-              Dove le parole prendono vita
-            </span>
+    <div className="space-y-32 font-serif text-slate-900">
+      {/* Hero Section */}
+      <section className={`relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-white py-24 sm:py-32 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm uppercase tracking-[0.32em] font-semibold text-slate-500 mb-6">
+              Il collettivo letterario di giovani voci
+            </p>
+            <h1 className="font-light tracking-tight text-5xl sm:text-6xl md:text-7xl leading-[1.02] text-slate-900 mb-8">
+              Dove ogni parola trova spazio.
+            </h1>
+            <p className="text-xl sm:text-2xl leading-9 text-slate-600 max-w-2xl">
+              SADAGA sostiene la democraticità della parola e accompagna il panorama culturale emergente con eventi, workshop e progetti dedicati a scrittori, artisti e lettori.
+            </p>
           </div>
 
-          <h1 className="text-5xl sm:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent mb-4 sm:mb-6 tracking-tight">
-            Sadaga
-          </h1>
-          <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
-            Un gruppo dedicato alla passione per la letteratura, la scrittura
-            creativa e lo scambio di idee tra autori e lettori appassionati.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/eventi" className="group px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-accent to-accent/90 text-white rounded-xl hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 inline-flex items-center justify-center gap-2 font-semibold text-sm sm:text-base">
+          <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link href="/eventi" className="inline-flex items-center justify-center rounded-full bg-slate-900 px-8 py-4 text-base font-semibold text-white transition hover:bg-slate-800">
               Scopri gli eventi
-              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link href="/contatti" className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-accent text-accent rounded-xl hover:bg-accent hover:text-white transition-all duration-300 inline-flex items-center justify-center font-semibold text-sm sm:text-base">
-              Contattaci
+            <Link href="/chi-siamo" className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-8 py-4 text-base font-semibold text-slate-900 transition hover:bg-slate-50">
+              Chi siamo
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Features Section - Right to Left */}
-      <section className={`space-y-8 sm:space-y-12 py-8 sm:py-12 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <div className="group text-center p-6 sm:p-8 sm:p-12 hover:bg-gradient-to-br hover:from-primary/5 hover:to-accent/5 transition-all duration-300 border-b border-slate-200 shadow-none">
-          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-            <Users className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-          </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">Comunità</h3>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Unisciti a una comunità di scrittori e lettori appassionati
-          </p>
-        </div>
-
-        <div className="group text-center p-6 sm:p-8 sm:p-12 hover:bg-gradient-to-br hover:from-primary/5 hover:to-accent/5 transition-all duration-300 border-b border-slate-200 shadow-none">
-          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-accent to-primary rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-            <Calendar className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-          </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">Eventi</h3>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Partecipa a letture pubbliche, workshop e presentazioni
-          </p>
-        </div>
-
-        <div className="group text-center p-6 sm:p-8 sm:p-12 hover:bg-gradient-to-br hover:from-primary/5 hover:to-accent/5 transition-all duration-300 border-t border-slate-200 shadow-none">
-          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-            <BookOpen className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-          </div>
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">Connessioni</h3>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Seguici sui social per restare aggiornato
-          </p>
-        </div>
-      </section>
-
-      {/* Book Recommendations Section */}
-      <section className={`py-12 sm:py-16 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">Consigli di Lettura</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto text-sm sm:text-base">
-            Scopri alcuni dei nostri libri preferiti che hanno ispirato la nostra comunità letteraria
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-          {bookRecommendations.map((book, index) => (
-            <a
-              key={index}
-              href={book.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group p-6 sm:p-8 rounded-xl border border-slate-200 hover:border-accent hover:shadow-lg transition-all duration-300 bg-white hover:bg-gradient-to-br hover:from-primary/3 hover:to-accent/3"
-            >
-              <div className="flex justify-between items-start mb-3 sm:mb-4">
-                <div>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-1">
-                    {book.title}
-                  </h3>
-                  <p className="text-sm text-accent font-semibold">{book.author}</p>
-                </div>
-                <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                {book.description}
+      {/* Spotlight Section */}
+      <section className="relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-slate-50 py-24 sm:py-32">
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
+          <div className="grid gap-16 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
+            <div>
+              <p className="text-sm uppercase tracking-[0.32em] font-semibold text-slate-500 mb-4">
+                Il nostro approccio
               </p>
-            </a>
-          ))}
+              <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-slate-900 leading-[1.02] mb-6">
+                Minimalismo nella forma, intensità nei contenuti.
+              </h2>
+              <p className="text-lg leading-9 text-slate-600 max-w-xl">
+                Lavoriamo per creare esperienze culturali aperte, eleganti e vicine alle persone. Autenticità, spazio e chiarezza guidano tutto quello che facciamo.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <div className="rounded-[2rem] bg-white p-10 shadow-sm">
+                <p className="text-sm uppercase tracking-[0.32em] font-semibold text-slate-500 mb-4">Comunità</p>
+                <p className="text-xl font-semibold text-slate-900 leading-8">
+                  Spazio per chi ama scrivere e leggere, in un ambiente inclusivo e collaborativo.
+                </p>
+              </div>
+              <div className="rounded-[2rem] bg-white p-10 shadow-sm">
+                <p className="text-sm uppercase tracking-[0.32em] font-semibold text-slate-500 mb-4">Eventi</p>
+                <p className="text-xl font-semibold text-slate-900 leading-8">
+                  Workshop, incontri e momenti condivisi progettati per far emergere nuove voci.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className={`relative bg-gradient-to-r from-primary via-accent to-primary text-white rounded-2xl p-8 sm:p-12 md:p-16 text-center shadow-2xl overflow-hidden transition-all duration-1000 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_50%)]" />
-        </div>
+      {/* Readings Section */}
+      <section className={`relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-white py-24 sm:py-32 transition-all duration-1000 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <p className="text-sm uppercase tracking-[0.32em] font-semibold text-slate-500 mb-4">
+              Consigli di lettura
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-slate-900 leading-[1.02]">
+              Libro, ispirazione, community.
+            </h2>
+          </div>
 
-        <div className="relative z-10">
-          <h2 className="text-2xl sm:text-4xl font-bold mb-3 sm:mb-4">Unisciti a Sadaga</h2>
-          <p className="text-white/90 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-lg leading-relaxed">
-            Vuoi far parte della nostra comunità letteraria? Contattaci per
-            saperne di più su come aderire e partecipare ai nostri eventi.
-          </p>
-          <p className="text-white/95 mb-6 sm:mb-8 text-sm sm:text-lg">
-            Email:{" "}
-            <a href="mailto:grupposadaga@libero.it" className="font-semibold underline decoration-2 underline-offset-4 hover:text-white transition">
-              grupposadaga@libero.it
-            </a>
-          </p>
-          <Link href="/contatti" className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-slate-900 font-semibold rounded-xl hover:bg-slate-50 hover:shadow-xl transition-all duration-300 group text-sm sm:text-base">
-            Contattaci ora
-            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {bookRecommendations.map((book, index) => (
+              <a
+                key={index}
+                href={book.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group rounded-[2rem] bg-slate-50 p-10 transition hover:bg-slate-100"
+              >
+                <div className="mb-4">
+                  <p className="text-lg font-semibold text-slate-900 mb-2">{book.title}</p>
+                  <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500">{book.author}</p>
+                </div>
+                <p className="text-base leading-8 text-slate-600">
+                  {book.description}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className={`relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-slate-50 py-24 sm:py-32 transition-all duration-1000 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        <div className="mx-auto max-w-6xl px-6 sm:px-8">
+          <div className="max-w-3xl text-center mx-auto">
+            <p className="text-sm uppercase tracking-[0.32em] font-semibold text-slate-500 mb-4">
+              Unisciti a noi
+            </p>
+            <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-slate-900 leading-[1.02] mb-8">
+              Segui le novità del collettivo e resta aggiornato.
+            </h2>
+            <p className="text-lg leading-9 text-slate-600 mb-10">
+              Se desideri ricevere informazioni sugli eventi e sui progetti futuri, entra in contatto con noi. La nostra community cresce con ogni voce nuova.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link href="/contatti" className="inline-flex items-center justify-center rounded-full bg-slate-900 px-9 py-4 text-base font-semibold text-white transition hover:bg-slate-800">
+                Contattaci
+              </Link>
+              <Link href="/social" className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-9 py-4 text-base font-semibold text-slate-900 transition hover:bg-slate-50">
+                Seguici
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>

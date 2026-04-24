@@ -96,7 +96,7 @@ export default function Eventi() {
       <div className="mb-6">
         <h3 className="text-3xl font-bold text-slate-900 mb-2">{event.title}</h3>
         <p className="text-lg text-cyan-700 font-semibold italic mb-4">
-          "{event.details?.subtitle}"
+          {event.details?.subtitle}
         </p>
         <p className="text-slate-600 text-lg leading-relaxed mb-6">
           {event.description}

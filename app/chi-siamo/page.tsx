@@ -26,7 +26,7 @@ export default function ChiSiamo() {
       <section className="py-12 sm:py-16 border-b border-slate-200">
         <div className="text-center space-y-6">
           <p className="text-2xl sm:text-3xl font-semibold text-slate-900">
-            Qualcuno si starà, giustamente, chiedendo: "cosa è SADAGA?" 🤔
+            Qualcuno si starà, giustamente, chiedendo: cosa è SADAGA? 🤔
           </p>
           <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
             È giunto dunque il momento delle presentazioni ✨
@@ -90,7 +90,7 @@ export default function ChiSiamo() {
               Inclusività: la nostra comunità è aperta a tutti, indipendentemente dal livello di esperienza o dal background.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
-              Autenticità: crediamo nell'importanza di dare visibilità alle voci genuine e originali, non alle tendenze passeggere.
+              Autenticità: crediamo nell`importanza di dare visibilità alle voci genuine e originali, non alle tendenze passeggere.
             </p>
           </div>
         </div>

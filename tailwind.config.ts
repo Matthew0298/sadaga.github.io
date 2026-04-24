@@ -11,6 +11,9 @@ module.exports = {
         soft: '#EDE9FE',
         highlight: '#F59E0B',
       },
+      fontFamily: {
+        serif: ['Georgia', 'Garamond', 'serif'],
+      },
     },
   },
   plugins: [],

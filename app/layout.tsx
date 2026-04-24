@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
+import Navigation from "./components/Navigation";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -16,55 +15,8 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body className="bg-slate-50 text-slate-900">
-        <nav className="bg-white/80 backdrop-blur border-b border-slate-200 sticky top-0 z-50">
-          <div className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <Link href="/" className="flex items-center gap-3">
-              <Image
-                src="/logo.jpg"
-                alt="Sadaga Logo"
-                width={40}
-                height={40}
-                className="rounded-full object-cover"
-              />
-              <span className="text-2xl font-bold text-primary tracking-tight">Sadaga</span>
-            </Link>
-            <ul className="flex gap-8">
-              <li>
-                <Link
-                  href="/"
-                  className="text-slate-600 hover:text-accent transition"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contatti"
-                  className="text-slate-600 hover:text-accent transition"
-                >
-                  Contatti
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/social"
-                  className="text-slate-600 hover:text-accent transition"
-                >
-                  Social
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/eventi"
-                  className="text-slate-600 hover:text-accent transition"
-                >
-                  Eventi
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <main className="max-w-4xl mx-auto px-6 py-12">{children}</main>
+        <Navigation />
+        <main className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">{children}</main>
         <footer className="bg-primary text-slate-300 text-center py-6 mt-20">
           <p>&copy; 2026 Sadaga - Gruppo Letterario. Tutti i diritti riservati.</p>
         </footer>

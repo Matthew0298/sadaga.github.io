@@ -1,0 +1,33 @@
+{
+  "intro": "Connettiti con Sadaga sui social media per rimanere aggiornato su tutti i nostri eventi, condividere articoli e fare parte della comunità.",
+  "links": [
+    {
+      "id": "instagram",
+      "name": "Instagram",
+      "description": "Segui le nostre storie, foto e aggiornamenti dai nostri eventi.",
+      "url": "https://www.instagram.com/sadaga_group"
+    },
+    {
+      "id": "youtube",
+      "name": "YouTube",
+      "description": "Guarda i video dei nostri eventi, letture pubbliche e workshop.",
+      "url": "https://www.youtube.com/@sadaga_group"
+    },
+    {
+      "id": "tiktok",
+      "name": "TikTok",
+      "description": "Scopri i nostri contenuti brevi e behind-the-scenes.",
+      "url": "https://www.tiktok.com/@sadaga_group"
+    }
+  ],
+  "benefitsSection": {
+    "title": "Collegati e condividi",
+    "intro": "Segui i nostri canali social per:",
+    "bullets": [
+      "Ricevere notifiche su nuovi eventi e workshop",
+      "Partecipare a discussioni e condividere idee",
+      "Conoscere altri membri della comunità letteraria",
+      "Accedere a contenuti esclusivi e dietro le quinte"
+    ]
+  }
+}

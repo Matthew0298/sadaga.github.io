@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "title": "Chi Siamo",
+    "subtitle": "Scopri la storia e la missione di SADAGA"
+  },
+  "intro": {
+    "heading": "Qualcuno si starà, giustamente, chiedendo: cosa è SADAGA? 🤔",
+    "subheading": "È giunto dunque il momento delle presentazioni ✨"
+  },
+  "definition": {
+    "leadPrefix": "SADAGA è un collettivo di giovani che crede fermamente della ",
+    "leadHighlight": "democraticità della parola 🗣️",
+    "paragraphs": [
+      "Vorremmo concretamente essere parte attiva nel processo di valorizzazione del panorama culturale emergente. Crediamo che ogni voce meriti di essere ascoltata, che ogni storia abbia valore, e che la letteratura sia uno strumento potentissimo di connessione e cambiamento.",
+      "Il nostro obiettivo è semplice ma ambizioso: creare uno spazio dove la creatività possa fiorire, dove scrittori e lettori possano incontrarsi, e dove il panorama culturale locale possa arricchirsi di nuove voci e prospettive."
+    ]
+  },
+  "activitiesSection": {
+    "title": "Le Nostre Attività",
+    "subtitle": "Ecco come portiamo avanti la nostra missione"
+  },
+  "activities": [
+    { "emoji": "✍🏻", "text": "Workshop di scrittura poetica" },
+    { "emoji": "📖👩🏼‍💻", "text": "Assistenza editoriale" },
+    { "emoji": "🎭", "text": "Sponsorizzazione di autori e artisti" },
+    { "emoji": "💻", "text": "Recensioni, consigli, critica" },
+    { "emoji": "🥇🥈🥉", "text": "Concorsi letterari" },
+    { "emoji": "🖼️", "text": "Organizzazione di mostre e collettivi" },
+    { "emoji": "📝", "text": "Incontri con autori" },
+    { "emoji": "🎙️", "text": "Interviste e podcasting" }
+  ],
+  "values": {
+    "title": "I Nostri Valori",
+    "paragraphs": [
+      "Sostenibilità culturale: crediamo che la cultura emergente meriti supporto e attenzione genuina.",
+      "Inclusività: la nostra comunità è aperta a tutti, indipendentemente dal livello di esperienza o dal background.",
+      "Autenticità: crediamo nell'importanza di dare visibilità alle voci genuine e originali, non alle tendenze passeggere."
+    ]
+  },
+  "cta": {
+    "title": "Seguiteci per non perdere le prossime novità 🥰",
+    "closing": "A presto!"
+  }
+}

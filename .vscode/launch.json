@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug (npm run dev)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Chrome: app locale (client)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000/sadaga.github.io",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

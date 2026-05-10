@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "title": "Lettura Pubblica Mensile",
+    "date": "15 Maggio 2026",
+    "time": "18:30",
+    "location": "Centro Culturale",
+    "description": "Ascolta gli autori del nostro gruppo leggere le loro opere inedite.",
+    "status": "upcoming"
+  },
+  {
+    "id": 2,
+    "title": "Workshop: Tecniche di Scrittura Creativa",
+    "date": "22 Maggio 2026",
+    "time": "19:00",
+    "location": "Biblioteca Civica",
+    "description": "Impara le tecniche fondamentali della scrittura creativa con esperti del settore.",
+    "status": "upcoming"
+  },
+  {
+    "id": 3,
+    "title": "Incontro con Autore Ospite",
+    "date": "5 Giugno 2026",
+    "time": "17:00",
+    "location": "Sala Conferenze",
+    "description": "Incontra un autore affermato e scopri il suo processo creativo.",
+    "status": "upcoming"
+  },
+  {
+    "id": 4,
+    "title": "Beach Clean-Up",
+    "date": "15 Marzo 2026",
+    "time": "9:45",
+    "location": "Porto Rosso, zona parcheggio",
+    "description": "Stiamo organizzando un Beach Clean-Up e abbiamo bisogno di te! Non serve esperienza, basta solo la voglia di fare la differenza.",
+    "status": "special",
+    "details": {
+      "subtitle": "𝑒̀ 𝑢𝑛 𝑚𝑎𝑟𝑒 𝑑𝑖 𝑟𝑖𝑓𝑢𝑡𝑖 𝑑𝑖 𝑐𝑢𝑖 𝑝𝑜𝑠𝑠𝑖𝑎𝑚𝑜 𝑓𝑎𝑟𝑒 𝑎 𝑚𝑒𝑛𝑜!",
+      "whatToBring": "Nulla, provvederemo noi a fornire gratuitamente guanti, pinze e buste.",
+      "refreshment": "A fine pulizia, per tutti i partecipanti ci sarà un piccolo rinfresco offerto da @piazzadispagnacafe 🍹💙",
+      "contact": "Scrivici in DM per confermare la tua presenza. 👇🏻📩"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Club di Lettura: \"Classici del Novecento\"",
+    "date": "12 Aprile 2026",
+    "time": "17:00",
+    "location": "Centro Culturale",
+    "description": "Discussione e analisi di capolavori della letteratura italiana del Novecento.",
+    "status": "past"
+  }
+]

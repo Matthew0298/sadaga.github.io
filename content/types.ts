@@ -26,13 +26,33 @@ export type SiteEvent = {
 };
 
 export type ChiSiamoActivity = {
-  emoji: string;
-  text: string;
+  title: string;
+  description?: string;
+};
+
+export type ChiSiamoValue = {
+  title: string;
+  description: string;
+};
+
+export type ChiSiamoMember = {
+  name: string;
+  role: string;
+  bio?: string;
+  image?: string;
+};
+
+export type ChiSiamoTeam = {
+  title: string;
+  subtitle: string;
+  comingSoonNote: string;
+  placeholderSlots: number;
+  members: ChiSiamoMember[];
 };
 
 export type ChiSiamoContent = {
   hero: { title: string; subtitle: string };
-  intro: { heading: string; subheading: string };
+  intro: { eyebrow: string; heading: string; subheading: string };
   definition: {
     leadPrefix: string;
     leadHighlight: string;
@@ -40,8 +60,14 @@ export type ChiSiamoContent = {
   };
   activitiesSection: { title: string; subtitle: string };
   activities: ChiSiamoActivity[];
-  values: { title: string; paragraphs: string[] };
-  cta: { title: string; closing: string };
+  values: { title: string; items: ChiSiamoValue[] };
+  team: ChiSiamoTeam;
+  cta: {
+    title: string;
+    closing: string;
+    linkLabel: string;
+    linkHref: string;
+  };
 };
 
 export type SocialIconId = "instagram" | "youtube" | "tiktok";
@@ -77,7 +103,7 @@ export type GalleryPhoto = {
 
 export type GalleryContent = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   maxPhotos: number;
   photos: GalleryPhoto[];
 };

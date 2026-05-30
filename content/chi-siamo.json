@@ -1,44 +1,87 @@
 {
   "hero": {
-    "title": "Chi Siamo",
-    "subtitle": "Scopri la storia e la missione di SADAGA"
+    "title": "Chi siamo",
+    "subtitle": "Un collettivo letterario che mette al centro la parola, gli incontri e le voci emergenti."
   },
   "intro": {
-    "heading": "Qualcuno si starà, giustamente, chiedendo: cosa è SADAGA? 🤔",
-    "subheading": "È giunto dunque il momento delle presentazioni ✨"
+    "eyebrow": "Le presentazioni",
+    "heading": "Cosa è SADAGA?",
+    "subheading": "È un gruppo di giovani che crede nella forza della scrittura e della cultura condivisa — con leggerezza nel tono, ma con serietà negli obiettivi."
   },
   "definition": {
-    "leadPrefix": "SADAGA è un collettivo di giovani che crede fermamente della ",
-    "leadHighlight": "democraticità della parola 🗣️",
+    "leadPrefix": "SADAGA è un collettivo che sostiene la ",
+    "leadHighlight": "democraticità della parola",
     "paragraphs": [
-      "Vorremmo concretamente essere parte attiva nel processo di valorizzazione del panorama culturale emergente. Crediamo che ogni voce meriti di essere ascoltata, che ogni storia abbia valore, e che la letteratura sia uno strumento potentissimo di connessione e cambiamento.",
-      "Il nostro obiettivo è semplice ma ambizioso: creare uno spazio dove la creatività possa fiorire, dove scrittori e lettori possano incontrarsi, e dove il panorama culturale locale possa arricchirsi di nuove voci e prospettive."
+      "Vogliamo essere parte attiva nella valorizzazione del panorama culturale emergente: ogni voce merita ascolto, ogni storia ha valore, e la letteratura resta uno strumento potente di incontro e cambiamento.",
+      "Il nostro obiettivo è creare uno spazio dove la creatività possa crescere — tra scrittori, lettori e chi vuole avvicinarsi al mondo culturale con curiosità e rispetto."
     ]
   },
   "activitiesSection": {
-    "title": "Le Nostre Attività",
-    "subtitle": "Ecco come portiamo avanti la nostra missione"
+    "title": "Cosa facciamo",
+    "subtitle": "Attività e progetti con cui portiamo avanti la missione del collettivo."
   },
   "activities": [
-    { "emoji": "✍🏻", "text": "Workshop di scrittura poetica" },
-    { "emoji": "📖👩🏼‍💻", "text": "Assistenza editoriale" },
-    { "emoji": "🎭", "text": "Sponsorizzazione di autori e artisti" },
-    { "emoji": "💻", "text": "Recensioni, consigli, critica" },
-    { "emoji": "🥇🥈🥉", "text": "Concorsi letterari" },
-    { "emoji": "🖼️", "text": "Organizzazione di mostre e collettivi" },
-    { "emoji": "📝", "text": "Incontri con autori" },
-    { "emoji": "🎙️", "text": "Interviste e podcasting" }
+    {
+      "title": "Workshop di scrittura poetica",
+      "description": "Laboratori pratici per sperimentare forma, ritmo e voce."
+    },
+    {
+      "title": "Assistenza editoriale",
+      "description": "Supporto a testi e progetti in fase di revisione."
+    },
+    {
+      "title": "Sponsorizzazione di autori e artisti",
+      "description": "Visibilità a chi produce cultura sul territorio."
+    },
+    {
+      "title": "Recensioni e critica",
+      "description": "Letture condivise, consigli e dialogo sulle opere."
+    },
+    {
+      "title": "Concorsi letterari",
+      "description": "Spazi di sfida e crescita per nuove scritture."
+    },
+    {
+      "title": "Mostre e collettivi",
+      "description": "Eventi che uniscono parole, immagini e incontro dal vivo."
+    },
+    {
+      "title": "Incontri con autori",
+      "description": "Presentazioni e conversazioni aperte al pubblico."
+    },
+    {
+      "title": "Interviste e podcast",
+      "description": "Voci del collettivo e ospiti raccontati in formato audio."
+    }
   ],
   "values": {
-    "title": "I Nostri Valori",
-    "paragraphs": [
-      "Sostenibilità culturale: crediamo che la cultura emergente meriti supporto e attenzione genuina.",
-      "Inclusività: la nostra comunità è aperta a tutti, indipendentemente dal livello di esperienza o dal background.",
-      "Autenticità: crediamo nell'importanza di dare visibilità alle voci genuine e originali, non alle tendenze passeggere."
+    "title": "I nostri valori",
+    "items": [
+      {
+        "title": "Sostenibilità culturale",
+        "description": "La cultura emergente merita attenzione e supporto concreti, non solo visibilità passeggera."
+      },
+      {
+        "title": "Inclusività",
+        "description": "La community è aperta a tutti, indipendentemente da esperienza e background."
+      },
+      {
+        "title": "Autenticità",
+        "description": "Diamo spazio a voci genuine, non alle mode del momento."
+      }
     ]
   },
+  "team": {
+    "title": "Le persone del collettivo",
+    "subtitle": "Qui troverete chi coordina e anima Sadaga. Le schede si aggiorneranno quando il gruppo vorrà presentarsi.",
+    "comingSoonNote": "Presentazioni in arrivo",
+    "placeholderSlots": 3,
+    "members": []
+  },
   "cta": {
-    "title": "Seguiteci per non perdere le prossime novità 🥰",
-    "closing": "A presto!"
+    "title": "Seguiteci per le prossime novità",
+    "closing": "Restiamo in contatto — ci fa piacere avervi qui.",
+    "linkLabel": "Vai ai social",
+    "linkHref": "/social"
   }
 }

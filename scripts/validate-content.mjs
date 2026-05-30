@@ -117,11 +117,23 @@ function validateChiSiamo(data) {
     return;
   }
 
-  for (const section of ["hero", "intro", "definition", "activitiesSection", "values", "cta"]) {
+  for (const section of [
+    "hero",
+    "intro",
+    "definition",
+    "activitiesSection",
+    "values",
+    "team",
+    "cta",
+  ]) {
     if (!data[section] || typeof data[section] !== "object") {
       fail(`chi-siamo.json: manca la sezione "${section}".`);
     }
   }
+
+  requireString(data.intro, "eyebrow", "chi-siamo.json.intro");
+  requireString(data.intro, "heading", "chi-siamo.json.intro");
+  requireString(data.intro, "subheading", "chi-siamo.json.intro");
 
   if (!Array.isArray(data.activities) || data.activities.length === 0) {
     fail('chi-siamo.json: "activities" deve essere un array non vuoto.');
@@ -130,17 +142,57 @@ function validateChiSiamo(data) {
 
   for (const [index, activity] of data.activities.entries()) {
     const label = `chi-siamo.json [attività ${index + 1}]`;
-    requireString(activity, "emoji", label);
-    requireString(activity, "text", label);
+    requireString(activity, "title", label);
+    if (activity.description !== undefined && typeof activity.description !== "string") {
+      fail(`${label}: "description" deve essere testo se presente.`);
+    }
   }
 
   if (!Array.isArray(data.definition?.paragraphs) || data.definition.paragraphs.length === 0) {
     fail('chi-siamo.json: "definition.paragraphs" deve essere un array non vuoto.');
   }
 
-  if (!Array.isArray(data.values?.paragraphs) || data.values.paragraphs.length === 0) {
-    fail('chi-siamo.json: "values.paragraphs" deve essere un array non vuoto.');
+  if (!Array.isArray(data.values?.items) || data.values.items.length === 0) {
+    fail('chi-siamo.json: "values.items" deve essere un array non vuoto.');
+  } else {
+    for (const [index, item] of data.values.items.entries()) {
+      const label = `chi-siamo.json [valore ${index + 1}]`;
+      requireString(item, "title", label);
+      requireString(item, "description", label);
+    }
   }
+
+  const team = data.team;
+  requireString(team, "title", "chi-siamo.json.team");
+  requireString(team, "subtitle", "chi-siamo.json.team");
+  requireString(team, "comingSoonNote", "chi-siamo.json.team");
+
+  if (
+    typeof team.placeholderSlots !== "number" ||
+    team.placeholderSlots < 0 ||
+    team.placeholderSlots > 12
+  ) {
+    fail('chi-siamo.json.team: "placeholderSlots" deve essere un numero tra 0 e 12.');
+  }
+
+  if (!Array.isArray(team.members)) {
+    fail('chi-siamo.json.team: "members" deve essere un array.');
+  } else {
+    for (const [index, member] of team.members.entries()) {
+      const label = `chi-siamo.json [membro ${index + 1}]`;
+      requireString(member, "name", label);
+      requireString(member, "role", label);
+      if (member.bio !== undefined && typeof member.bio !== "string") {
+        fail(`${label}: "bio" deve essere testo se presente.`);
+      }
+      if (member.image !== undefined && typeof member.image !== "string") {
+        fail(`${label}: "image" deve essere testo (percorso) se presente.`);
+      }
+    }
+  }
+
+  requireString(data.cta, "linkLabel", "chi-siamo.json.cta");
+  requireString(data.cta, "linkHref", "chi-siamo.json.cta");
 }
 
 function validateSocial(data) {
@@ -200,7 +252,10 @@ function validateGallery(data) {
   }
 
   requireString(data, "title", "gallery.json");
-  requireString(data, "subtitle", "gallery.json");
+
+  if (data.subtitle !== undefined && (typeof data.subtitle !== "string" || data.subtitle.trim() === "")) {
+    fail('gallery.json: "subtitle" deve essere testo non vuoto se presente, oppure omettilo.');
+  }
 
   if (!Array.isArray(data.photos)) {
     fail('gallery.json: "photos" deve essere un array.');

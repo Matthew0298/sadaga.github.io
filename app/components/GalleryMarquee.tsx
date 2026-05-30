@@ -12,7 +12,7 @@ function stripWidth(photo: GalleryPhoto) {
 
 type GalleryMarqueeProps = {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   photos: GalleryPhoto[];
 };
 
@@ -39,12 +39,16 @@ export default function GalleryMarquee({
         <p className="text-sm uppercase tracking-[0.32em] font-semibold text-slate-500 mb-4 text-center">
           Galleria
         </p>
-        <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-slate-900 text-center leading-[1.05] mb-4">
+        <h2
+          className={`text-3xl sm:text-4xl font-light tracking-tight text-slate-900 text-center leading-[1.05] ${subtitle ? "mb-4" : ""}`}
+        >
           {title}
         </h2>
-        <p className="text-lg text-slate-600 text-center max-w-2xl mx-auto">
-          {subtitle}
-        </p>
+        {subtitle ? (
+          <p className="text-lg text-slate-600 text-center max-w-2xl mx-auto">
+            {subtitle}
+          </p>
+        ) : null}
       </div>
 
       {prefersReducedMotion ? (

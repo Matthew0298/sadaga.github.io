@@ -77,7 +77,7 @@ Esempio: aggiungere un evento.
 | `content/books.json` | Libri consigliati in **Home** |
 | `content/social.json` | Pagina **Social** (link Instagram, YouTube, TikTok) |
 | Cartella **`gallery/incoming/`** | Galleria foto in **Home** (scorrimento automatico) |
-| `gallery/gallery.config.json` | Titolo e sottotitolo della galleria in home |
+| `gallery/gallery.config.json` | Titolo galleria in home (`subtitle` opzionale) |
 
 Modelli completi e regole: cartella `content/schemas/` (riferimento per chi ha dubbi sui campi).
 
@@ -203,7 +203,56 @@ Di solito 2–5 minuti dopo il commit su `main`.
 Controlla **Actions**: se è rosso, correggi il JSON (o chiedi aiuto a chi ha accesso al repo).
 
 **Posso caricare foto?**  
-Le immagini del sito stanno in `public/`. Per ora serve qualcuno con accesso al repo che aggiunga il file immagine; nel JSON si può poi referenziare il percorso quando lo supporteremo nelle pagine.
+Galleria home: cartella `gallery/incoming/` (vedi sezione Galleria sopra). Altrove: file in `public/`.
+
+---
+
+## File `content/chi-siamo.json`
+
+Testi della pagina **Chi siamo**. Niente emoji nei testi: il tono può restare leggero, ma il layout è pulito.
+
+### Attività (`activities`)
+
+Ogni voce ha `title` e, opzionale, `description`:
+
+```json
+{
+  "title": "Workshop di scrittura poetica",
+  "description": "Laboratori pratici per sperimentare forma e voce."
+}
+```
+
+### Valori (`values.items`)
+
+```json
+{
+  "title": "Inclusività",
+  "description": "Testo breve che spiega il valore."
+}
+```
+
+### Team / creatori (`team`)
+
+Quando vorrete presentarvi, aggiungete oggetti in `members`:
+
+```json
+"members": [
+  {
+    "name": "Nome Cognome",
+    "role": "Coordinamento / Scrittura",
+    "bio": "Due righe su di voi (opzionale).",
+    "image": "/sadaga.github.io/team/nome.webp"
+  }
+]
+```
+
+- Con `members` **vuoto** e `placeholderSlots: 3` compaiono **3 schede segnaposto** (“Presentazioni in arrivo”).
+- Per nascondere i segnaposto: `"placeholderSlots": 0`.
+- Foto: file in `public/team/` (create la cartella), percorso come sopra con prefisso `/sadaga.github.io/`.
+
+### Chiusura (`cta`)
+
+`linkHref` di solito `/social`; `linkLabel` è il testo del pulsante.
 
 **Chi può pubblicare?**  
 Solo utenti con permesso **Write** o superiore sul repository GitHub.

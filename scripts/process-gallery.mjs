@@ -17,6 +17,15 @@ import sharp from "sharp";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const INCOMING_DIR = join(root, "gallery", "incoming");
 const OUT_DIR = join(root, "public", "gallery");
+const CHI_SIAMO_OUT_DIR = join(root, "public", "chi-siamo");
+
+/** Non compaiono nel marquee home; vanno in public/chi-siamo/ */
+const CHI_SIAMO_ONLY = new Set([
+  "sadaga-photo.jpg",
+  "sadaga-photo.jpeg",
+  "sadaga-photo.png",
+  "sadaga-photo.webp",
+]);
 const MANIFEST_PATH = join(root, "content", "gallery.json");
 const CONFIG_PATH = join(root, "gallery", "gallery.config.json");
 
@@ -29,7 +38,8 @@ const BASE_PATH = "/sadaga.github.io";
 const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
 const defaultConfig = {
-  title: "Momenti dagli eventi"
+  title: "Momenti dagli eventi",
+
 };
 
 function loadConfig() {
@@ -82,6 +92,51 @@ function listIncomingFiles() {
       return { name, fullPath, mtime: stat.mtimeMs, size: stat.size };
     })
     .sort((a, b) => b.mtime - a.mtime);
+}
+
+function isChiSiamoOnly(filename) {
+  return CHI_SIAMO_ONLY.has(filename.toLowerCase());
+}
+
+async function writeWebpFromFile(file, outPath, maxEdge = MAX_LONG_EDGE) {
+  const pipeline = sharp(file.fullPath, { failOn: "none" }).rotate();
+  const meta = await pipeline.metadata();
+  if (!meta.width || !meta.height) {
+    throw new Error(`impossibile leggere dimensioni (${file.name})`);
+  }
+  const resized = pipeline.resize({
+    width: meta.width >= meta.height ? maxEdge : undefined,
+    height: meta.height > meta.width ? maxEdge : undefined,
+    fit: "inside",
+    withoutEnlargement: true,
+  });
+  const { data, info } = await resized
+    .webp({ quality: WEBP_QUALITY, effort: 4 })
+    .toBuffer({ resolveWithObject: true });
+  writeFileSync(outPath, data);
+  return info;
+}
+
+async function processChiSiamoAssets(files) {
+  const chiSiamoFiles = files.filter((f) => isChiSiamoOnly(f.name));
+  if (chiSiamoFiles.length === 0) return;
+
+  mkdirSync(CHI_SIAMO_OUT_DIR, { recursive: true });
+  console.log(`\n🖼️  Chi siamo: ${chiSiamoFiles.length} immagine/i dedicata/e\n`);
+
+  for (const file of chiSiamoFiles) {
+    const base = slugify(file.name) || "sadaga-photo";
+    const outPath = join(CHI_SIAMO_OUT_DIR, `${base}.webp`);
+    try {
+      const info = await writeWebpFromFile(file, outPath, 1200);
+      console.log(
+        `  ✓ ${file.name} → chi-siamo/${base}.webp (${info.width}×${info.height}, esclusa dalla galleria home)`
+      );
+    } catch (error) {
+      console.error(`  ✗ ${file.name}: ${error.message}`);
+      process.exitCode = 1;
+    }
+  }
 }
 
 async function processOne(file, usedIds) {
@@ -150,10 +205,13 @@ async function main() {
   mkdirSync(OUT_DIR, { recursive: true });
   mkdirSync(INCOMING_DIR, { recursive: true });
 
-  const toProcess = incoming.slice(0, MAX_PHOTOS);
-  if (incoming.length > MAX_PHOTOS) {
+  await processChiSiamoAssets(incoming);
+
+  const galleryIncoming = incoming.filter((f) => !isChiSiamoOnly(f.name));
+  const toProcess = galleryIncoming.slice(0, MAX_PHOTOS);
+  if (galleryIncoming.length > MAX_PHOTOS) {
     console.warn(
-      `⚠️  Trovate ${incoming.length} foto: ne verranno usate ${MAX_PHOTOS} (le più recenti per data di modifica).`
+      `⚠️  Trovate ${galleryIncoming.length} foto galleria: ne verranno usate ${MAX_PHOTOS} (le più recenti per data di modifica).`
     );
   }
 
@@ -178,10 +236,13 @@ async function main() {
 
   const manifest = {
     title: config.title,
-    subtitle: config.subtitle,
     maxPhotos: MAX_PHOTOS,
     photos,
   };
+
+  if (typeof config.subtitle === "string" && config.subtitle.trim()) {
+    manifest.subtitle = config.subtitle.trim();
+  }
 
   writeFileSync(MANIFEST_PATH, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
 

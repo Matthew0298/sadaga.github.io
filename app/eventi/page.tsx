@@ -1,13 +1,14 @@
 import type { SiteEvent } from "@/content/types";
 import { events } from "@/content";
+import ScrollReveal from "../components/ScrollReveal";
 
 export default function Eventi() {
-  const upcomingEvents = events.filter((e) => e.status === 'upcoming');
-  const specialEvents = events.filter((e) => e.status === 'special');
-  const pastEvents = events.filter((e) => e.status === 'past');
+  const upcomingEvents = events.filter((e) => e.status === "upcoming");
+  const specialEvents = events.filter((e) => e.status === "special");
+  const pastEvents = events.filter((e) => e.status === "past");
 
   const EventCard = ({ event }: { event: SiteEvent }) => (
-    <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-all duration-200">
+    <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-all duration-200 h-full">
       <div className="flex justify-between items-start mb-4">
         <div>
           <h3 className="text-xl font-bold text-slate-900">{event.title}</h3>
@@ -15,12 +16,12 @@ export default function Eventi() {
         </div>
         <span
           className={`px-3 py-1 rounded text-sm font-semibold ${
-            event.status === 'upcoming'
-              ? 'bg-green-100 text-green-800'
-              : 'bg-slate-100 text-slate-800'
+            event.status === "upcoming"
+              ? "bg-green-100 text-green-800"
+              : "bg-slate-100 text-slate-800"
           }`}
         >
-          {event.status === 'upcoming' ? 'In arrivo' : 'Passato'}
+          {event.status === "upcoming" ? "In arrivo" : "Passato"}
         </span>
       </div>
       <p className="text-slate-600 mb-4">{event.description}</p>
@@ -32,7 +33,7 @@ export default function Eventi() {
           <span className="font-semibold text-slate-900">Luogo:</span> {event.location}
         </p>
       </div>
-      {event.status === 'upcoming' && (
+      {event.status === "upcoming" && (
         <button className="w-full mt-4 px-4 py-2 bg-slate-900 text-white rounded hover:bg-slate-800 transition font-semibold">
           Iscriviti
         </button>
@@ -100,17 +101,23 @@ export default function Eventi() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold text-slate-900 mb-4">Eventi</h1>
-      <p className="text-slate-600 mb-12">
-        Scopri i nostri prossimi eventi, dalle letture pubbliche ai workshop di scrittura creativa.
-      </p>
+      <ScrollReveal>
+        <h1 className="text-4xl font-bold text-slate-900 mb-4">Eventi</h1>
+        <p className="text-slate-600 mb-12">
+          Scopri i nostri prossimi eventi, dalle letture pubbliche ai workshop di scrittura creativa.
+        </p>
+      </ScrollReveal>
 
       {upcomingEvents.length > 0 && (
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">Prossimi Eventi</h2>
+          <ScrollReveal>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">Prossimi Eventi</h2>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {upcomingEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
+            {upcomingEvents.map((event, index) => (
+              <ScrollReveal key={event.id} delay={index * 0.08}>
+                <EventCard event={event} />
+              </ScrollReveal>
             ))}
           </div>
         </section>
@@ -118,24 +125,31 @@ export default function Eventi() {
 
       {specialEvents.length > 0 && (
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">Progetto Speciale</h2>
+          <ScrollReveal>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">Progetto Speciale</h2>
+          </ScrollReveal>
           {specialEvents.map((event) => (
-            <SpecialEventCard key={event.id} event={event} />
+            <ScrollReveal key={event.id}>
+              <SpecialEventCard event={event} />
+            </ScrollReveal>
           ))}
         </section>
       )}
 
       {pastEvents.length > 0 && (
         <section className="mt-16">
-          <h2 className="text-2xl font-bold text-slate-900 mb-6">Eventi Passati</h2>
+          <ScrollReveal>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">Eventi Passati</h2>
+          </ScrollReveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {pastEvents.map((event) => (
-              <EventCard key={event.id} event={event} />
+            {pastEvents.map((event, index) => (
+              <ScrollReveal key={event.id} delay={index * 0.08}>
+                <EventCard event={event} />
+              </ScrollReveal>
             ))}
           </div>
         </section>
       )}
-
     </div>
   );
 }

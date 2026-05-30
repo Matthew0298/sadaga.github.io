@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import ScrollReveal from "../components/ScrollReveal";
 
 export default function Contatti() {
   const [formData, setFormData] = useState({
@@ -110,10 +111,12 @@ const handleSubmit = (e: React.FormEvent) => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <h1 className="text-4xl font-bold text-slate-900 mb-8">Contatti</h1>
-      <p className="text-slate-600 mb-8">
-        Hai una domanda o vuoi saperne di più su Sadaga? Compila il modulo qui sotto e ti contatteremo al più presto.
-      </p>
+      <ScrollReveal>
+        <h1 className="text-4xl font-bold text-slate-900 mb-8">Contatti</h1>
+        <p className="text-slate-600 mb-8">
+          Hai una domanda o vuoi saperne di più su Sadaga? Compila il modulo qui sotto e ti contatteremo al più presto.
+        </p>
+      </ScrollReveal>
 
       {submitted && (
         <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded mb-6">
@@ -121,6 +124,7 @@ const handleSubmit = (e: React.FormEvent) => {
         </div>
       )}
 
+      <ScrollReveal>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="nome" className="block text-sm font-semibold text-slate-900 mb-2">
@@ -213,7 +217,9 @@ const handleSubmit = (e: React.FormEvent) => {
           Invia messaggio
         </button>
       </form>
+      </ScrollReveal>
 
+      <ScrollReveal>
       <div className="mt-12 pt-8 border-t border-slate-200">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">Altre informazioni</h2>
         <p className="text-slate-600 mb-2">
@@ -223,6 +229,7 @@ const handleSubmit = (e: React.FormEvent) => {
           Seguici sui social per rimanere aggiornato sui nostri eventi e attività.
         </p>
       </div>
+      </ScrollReveal>
     </div>
   );
 }

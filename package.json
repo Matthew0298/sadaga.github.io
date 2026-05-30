@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate:content": "node scripts/validate-content.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

@@ -6,7 +6,7 @@
     "time": "18:30",
     "location": "Centro Culturale",
     "description": "Ascolta gli autori del nostro gruppo leggere le loro opere inedite.",
-    "status": "upcoming"
+    "status": "past"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "time": "19:00",
     "location": "Biblioteca Civica",
     "description": "Impara le tecniche fondamentali della scrittura creativa con esperti del settore.",
-    "status": "upcoming"
+    "status": "past"
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@
     "time": "9:45",
     "location": "Porto Rosso, zona parcheggio",
     "description": "Stiamo organizzando un Beach Clean-Up e abbiamo bisogno di te! Non serve esperienza, basta solo la voglia di fare la differenza.",
-    "status": "special",
+    "status": "past",
     "details": {
       "subtitle": "𝑒̀ 𝑢𝑛 𝑚𝑎𝑟𝑒 𝑑𝑖 𝑟𝑖𝑓𝑢𝑡𝑖 𝑑𝑖 𝑐𝑢𝑖 𝑝𝑜𝑠𝑠𝑖𝑎𝑚𝑜 𝑓𝑎𝑟𝑒 𝑎 𝑚𝑒𝑛𝑜!",
       "whatToBring": "Nulla, provvederemo noi a fornire gratuitamente guanti, pinze e buste.",

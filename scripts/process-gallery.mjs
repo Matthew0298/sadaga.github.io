@@ -29,9 +29,7 @@ const BASE_PATH = "/sadaga.github.io";
 const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
 const defaultConfig = {
-  title: "Momenti dagli eventi",
-  subtitle:
-    "Uno scorrimento continuo delle foto scattate ai nostri incontri e workshop.",
+  title: "Momenti dagli eventi"
 };
 
 function loadConfig() {

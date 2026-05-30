@@ -1,6 +1,258 @@
 {
   "title": "Momenti dagli eventi",
-  "subtitle": "Uno scorrimento continuo delle foto scattate ai nostri incontri e workshop.",
   "maxPhotos": 50,
-  "photos": []
+  "photos": [
+    {
+      "id": "mg-8115",
+      "src": "/sadaga.github.io/gallery/mg-8115.webp",
+      "alt": "MG 8115",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8115.jpg"
+    },
+    {
+      "id": "mg-7980",
+      "src": "/sadaga.github.io/gallery/mg-7980.webp",
+      "alt": "MG 7980",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_7980.jpg"
+    },
+    {
+      "id": "mg-8079",
+      "src": "/sadaga.github.io/gallery/mg-8079.webp",
+      "alt": "MG 8079",
+      "width": 1600,
+      "height": 1066,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8079.jpg"
+    },
+    {
+      "id": "mg-8068",
+      "src": "/sadaga.github.io/gallery/mg-8068.webp",
+      "alt": "MG 8068",
+      "width": 1600,
+      "height": 1066,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8068.jpg"
+    },
+    {
+      "id": "mg-8077",
+      "src": "/sadaga.github.io/gallery/mg-8077.webp",
+      "alt": "MG 8077",
+      "width": 1066,
+      "height": 1600,
+      "orientation": "portrait",
+      "sourceFile": "_MG_8077.jpg"
+    },
+    {
+      "id": "mg-8126",
+      "src": "/sadaga.github.io/gallery/mg-8126.webp",
+      "alt": "MG 8126",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8126.jpg"
+    },
+    {
+      "id": "mg-8104",
+      "src": "/sadaga.github.io/gallery/mg-8104.webp",
+      "alt": "MG 8104",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8104.jpg"
+    },
+    {
+      "id": "mg-8094",
+      "src": "/sadaga.github.io/gallery/mg-8094.webp",
+      "alt": "MG 8094",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8094.jpg"
+    },
+    {
+      "id": "mg-8100",
+      "src": "/sadaga.github.io/gallery/mg-8100.webp",
+      "alt": "MG 8100",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8100.jpg"
+    },
+    {
+      "id": "mg-8159",
+      "src": "/sadaga.github.io/gallery/mg-8159.webp",
+      "alt": "MG 8159",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8159.jpg"
+    },
+    {
+      "id": "mg-8153",
+      "src": "/sadaga.github.io/gallery/mg-8153.webp",
+      "alt": "MG 8153",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8153.jpg"
+    },
+    {
+      "id": "mg-8170",
+      "src": "/sadaga.github.io/gallery/mg-8170.webp",
+      "alt": "MG 8170",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_8170.jpg"
+    },
+    {
+      "id": "mg-8157",
+      "src": "/sadaga.github.io/gallery/mg-8157.webp",
+      "alt": "MG 8157",
+      "width": 1067,
+      "height": 1600,
+      "orientation": "portrait",
+      "sourceFile": "_MG_8157.jpg"
+    },
+    {
+      "id": "img-20260425-170701-017",
+      "src": "/sadaga.github.io/gallery/img-20260425-170701-017.webp",
+      "alt": "IMG 20260425 170701 017",
+      "width": 1600,
+      "height": 1200,
+      "orientation": "landscape",
+      "sourceFile": "IMG_20260425_170701_017.jpg"
+    },
+    {
+      "id": "mg-5751",
+      "src": "/sadaga.github.io/gallery/mg-5751.webp",
+      "alt": "MG 5751",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_5751.jpg"
+    },
+    {
+      "id": "mg-5742",
+      "src": "/sadaga.github.io/gallery/mg-5742.webp",
+      "alt": "MG 5742",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_5742.jpg"
+    },
+    {
+      "id": "mg-5711",
+      "src": "/sadaga.github.io/gallery/mg-5711.webp",
+      "alt": "MG 5711",
+      "width": 1067,
+      "height": 1600,
+      "orientation": "portrait",
+      "sourceFile": "_MG_5711.jpg"
+    },
+    {
+      "id": "mg-5705",
+      "src": "/sadaga.github.io/gallery/mg-5705.webp",
+      "alt": "MG 5705",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_5705.jpg"
+    },
+    {
+      "id": "mg-5720",
+      "src": "/sadaga.github.io/gallery/mg-5720.webp",
+      "alt": "MG 5720",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_5720.jpg"
+    },
+    {
+      "id": "mg-6572",
+      "src": "/sadaga.github.io/gallery/mg-6572.webp",
+      "alt": "MG 6572",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_6572.jpg"
+    },
+    {
+      "id": "mg-6590",
+      "src": "/sadaga.github.io/gallery/mg-6590.webp",
+      "alt": "MG 6590",
+      "width": 1600,
+      "height": 1066,
+      "orientation": "landscape",
+      "sourceFile": "_MG_6590.jpg"
+    },
+    {
+      "id": "mg-6674",
+      "src": "/sadaga.github.io/gallery/mg-6674.webp",
+      "alt": "MG 6674",
+      "width": 1066,
+      "height": 1600,
+      "orientation": "portrait",
+      "sourceFile": "_MG_6674.jpg"
+    },
+    {
+      "id": "mg-6734",
+      "src": "/sadaga.github.io/gallery/mg-6734.webp",
+      "alt": "MG 6734",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_6734.jpg"
+    },
+    {
+      "id": "mg-6903",
+      "src": "/sadaga.github.io/gallery/mg-6903.webp",
+      "alt": "MG 6903",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_6903.jpg"
+    },
+    {
+      "id": "mg-6972",
+      "src": "/sadaga.github.io/gallery/mg-6972.webp",
+      "alt": "MG 6972",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "_MG_6972.jpg"
+    },
+    {
+      "id": "copia-di-wonderact-big-43",
+      "src": "/sadaga.github.io/gallery/copia-di-wonderact-big-43.webp",
+      "alt": "Copia di WONDERACT BIG 43",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "Copia di WONDERACT-BIG-43.jpg"
+    },
+    {
+      "id": "copia-di-wonderact-big-18",
+      "src": "/sadaga.github.io/gallery/copia-di-wonderact-big-18.webp",
+      "alt": "Copia di WONDERACT BIG 18",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "Copia di WONDERACT-BIG-18.JPG"
+    },
+    {
+      "id": "copia-di-wonderact-big-30",
+      "src": "/sadaga.github.io/gallery/copia-di-wonderact-big-30.webp",
+      "alt": "Copia di WONDERACT BIG 30",
+      "width": 1600,
+      "height": 1067,
+      "orientation": "landscape",
+      "sourceFile": "Copia di WONDERACT-BIG-30.JPG"
+    }
+  ]
 }

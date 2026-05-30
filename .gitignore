@@ -1,6 +1,10 @@
 node_modules/
 .next/
 out/
+public/gallery/*
+!public/gallery/.gitkeep
+public/chi-siamo/*
+!public/chi-siamo/.gitkeep
 build/
 *.log
 .DS_Store

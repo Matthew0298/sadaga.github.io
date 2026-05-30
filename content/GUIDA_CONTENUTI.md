@@ -76,8 +76,37 @@ Esempio: aggiungere un evento.
 | `content/chi-siamo.json` | Pagina **Chi siamo** |
 | `content/books.json` | Libri consigliati in **Home** |
 | `content/social.json` | Pagina **Social** (link Instagram, YouTube, TikTok) |
+| Cartella **`gallery/incoming/`** | Galleria foto in **Home** (scorrimento automatico) |
+| `gallery/gallery.config.json` | Titolo galleria in home (`subtitle` opzionale) |
 
 Modelli completi e regole: cartella `content/schemas/` (riferimento per chi ha dubbi sui campi).
+
+---
+
+## Galleria foto (Home)
+
+Le foto **non** si modificano in un JSON a mano: si mettono nella cartella **`gallery/incoming/`** sul repository.
+
+### Passi
+
+1. Su GitHub apri **`gallery`** → **`incoming`**.
+2. **Add file** → carica le immagini (JPG, PNG o WebP).
+3. Commit su `main`.
+4. Attendi il deploy verde in **Actions** (2–5 minuti).
+
+Il sito le ridimensiona da solo (anche se sono ~2 MB o verticali/orizzontali) e mostra al massimo **50** foto (se ne carichi di più, restano le 50 più recenti).
+
+### Consigli
+
+| Cosa | Dettaglio |
+|------|-----------|
+| Nomi file | Es. `workshop-aprile-02.jpg` (aiuta la descrizione per chi non vede l’immagine) |
+| Orientamento | Verticale o orizzontale: entrambi vanno bene |
+| Dimensione originale | Anche 2 MB per foto è accettabile; online saranno molto più leggere |
+| Rimuovere una foto | Elimina il file da `gallery/incoming/` e fai commit |
+| Titolo sezione | Modifica `gallery/gallery.config.json` |
+
+**Non** modificare i file in `public/gallery/`: sono creati in automatico dal deploy.
 
 ---
 
@@ -174,7 +203,56 @@ Di solito 2–5 minuti dopo il commit su `main`.
 Controlla **Actions**: se è rosso, correggi il JSON (o chiedi aiuto a chi ha accesso al repo).
 
 **Posso caricare foto?**  
-Le immagini del sito stanno in `public/`. Per ora serve qualcuno con accesso al repo che aggiunga il file immagine; nel JSON si può poi referenziare il percorso quando lo supporteremo nelle pagine.
+Galleria home: cartella `gallery/incoming/` (vedi sezione Galleria sopra). Altrove: file in `public/`.
+
+---
+
+## File `content/chi-siamo.json`
+
+Testi della pagina **Chi siamo**. Niente emoji nei testi: il tono può restare leggero, ma il layout è pulito.
+
+### Attività (`activities`)
+
+Ogni voce ha `title` e, opzionale, `description`:
+
+```json
+{
+  "title": "Workshop di scrittura poetica",
+  "description": "Laboratori pratici per sperimentare forma e voce."
+}
+```
+
+### Valori (`values.items`)
+
+```json
+{
+  "title": "Inclusività",
+  "description": "Testo breve che spiega il valore."
+}
+```
+
+### Team / creatori (`team`)
+
+Quando vorrete presentarvi, aggiungete oggetti in `members`:
+
+```json
+"members": [
+  {
+    "name": "Nome Cognome",
+    "role": "Coordinamento / Scrittura",
+    "bio": "Due righe su di voi (opzionale).",
+    "image": "/sadaga.github.io/team/nome.webp"
+  }
+]
+```
+
+- Con `members` **vuoto** e `placeholderSlots: 3` compaiono **3 schede segnaposto** (“Presentazioni in arrivo”).
+- Per nascondere i segnaposto: `"placeholderSlots": 0`.
+- Foto: file in `public/team/` (create la cartella), percorso come sopra con prefisso `/sadaga.github.io/`.
+
+### Chiusura (`cta`)
+
+`linkHref` di solito `/social`; `linkLabel` è il testo del pulsante.
 
 **Chi può pubblicare?**  
 Solo utenti con permesso **Write** o superiore sul repository GitHub.

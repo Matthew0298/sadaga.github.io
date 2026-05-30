@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Process gallery photos
+        run: npm run gallery:process
+
       - name: Validate content JSON
         run: npm run validate:content
 

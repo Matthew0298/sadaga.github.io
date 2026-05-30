@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navigation from "./components/Navigation";
+import ScrollProvider from "./components/ScrollProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,11 +16,13 @@ export default function RootLayout({
   return (
     <html lang="it">
       <body className="bg-slate-50 text-slate-900">
-        <Navigation />
-        <main className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">{children}</main>
-        <footer className="bg-primary text-slate-300 text-center py-6 mt-20">
-          <p>&copy; 2026 Sadaga - Gruppo Letterario. Tutti i diritti riservati.</p>
-        </footer>
+        <ScrollProvider>
+          <Navigation />
+          <main className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-12">{children}</main>
+          <footer className="bg-primary text-slate-300 text-center py-6 mt-20">
+            <p>&copy; 2026 Sadaga - Gruppo Letterario. Tutti i diritti riservati.</p>
+          </footer>
+        </ScrollProvider>
       </body>
     </html>
   );

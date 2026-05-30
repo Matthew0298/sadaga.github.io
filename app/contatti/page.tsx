@@ -1,17 +1,31 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import emailjs from "@emailjs/browser";
+import { defaultMessageForEvent } from "@/lib/event-contact";
+import ScrollReveal from "../components/ScrollReveal";
 
-export default function Contatti() {
+function ContattiForm() {
+  const searchParams = useSearchParams();
+  const eventSubject = searchParams.get("oggetto");
+
   const [formData, setFormData] = useState({
-    nome: '',
-    cognome: '',
-    email: '',
-    message: '',
+    nome: "",
+    cognome: "",
+    email: "",
+    message: "",
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (!eventSubject) return;
+    setFormData((prev) => {
+      if (prev.message.trim()) return prev;
+      return { ...prev, message: defaultMessageForEvent(eventSubject) };
+    });
+  }, [eventSubject]);
 
   const allowedDomains = [
   // Global
@@ -110,10 +124,19 @@ const handleSubmit = (e: React.FormEvent) => {
 
   return (
     <div className="max-w-2xl mx-auto">
-      <h1 className="text-4xl font-bold text-slate-900 mb-8">Contatti</h1>
-      <p className="text-slate-600 mb-8">
-        Hai una domanda o vuoi saperne di più su Sadaga? Compila il modulo qui sotto e ti contatteremo al più presto.
-      </p>
+      <ScrollReveal>
+        <h1 className="text-4xl font-bold text-slate-900 mb-8">Contatti</h1>
+        <p className="text-slate-600 mb-8">
+          Hai una domanda o vuoi saperne di più su Sadaga? Compila il modulo qui sotto e ti contatteremo al più presto.
+        </p>
+      </ScrollReveal>
+
+      {eventSubject && !submitted && (
+        <div className="mb-6 rounded-lg border border-accent/25 bg-soft/40 px-4 py-3 text-slate-700">
+          Richiesta relativa a:{" "}
+          <span className="font-semibold text-slate-900">{eventSubject}</span>
+        </div>
+      )}
 
       {submitted && (
         <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded mb-6">
@@ -121,6 +144,7 @@ const handleSubmit = (e: React.FormEvent) => {
         </div>
       )}
 
+      <ScrollReveal>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label htmlFor="nome" className="block text-sm font-semibold text-slate-900 mb-2">
@@ -213,7 +237,9 @@ const handleSubmit = (e: React.FormEvent) => {
           Invia messaggio
         </button>
       </form>
+      </ScrollReveal>
 
+      <ScrollReveal>
       <div className="mt-12 pt-8 border-t border-slate-200">
         <h2 className="text-2xl font-bold text-slate-900 mb-4">Altre informazioni</h2>
         <p className="text-slate-600 mb-2">
@@ -223,6 +249,22 @@ const handleSubmit = (e: React.FormEvent) => {
           Seguici sui social per rimanere aggiornato sui nostri eventi e attività.
         </p>
       </div>
+      </ScrollReveal>
     </div>
+  );
+}
+
+export default function Contatti() {
+  return (
+    <Suspense
+      fallback={
+        <div className="mx-auto max-w-2xl animate-pulse space-y-4 py-8">
+          <div className="h-10 w-48 rounded bg-slate-200" />
+          <div className="h-24 rounded bg-slate-100" />
+        </div>
+      }
+    >
+      <ContattiForm />
+    </Suspense>
   );
 }

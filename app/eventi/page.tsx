@@ -1,63 +1,12 @@
-export default function Eventi() {
-  const events = [
-    {
-      id: 1,
-      title: 'Lettura Pubblica Mensile',
-      date: '15 Maggio 2026',
-      time: '18:30',
-      location: 'Centro Culturale',
-      description: 'Ascolta gli autori del nostro gruppo leggere le loro opere inedite.',
-      status: 'upcoming',
-    },
-    {
-      id: 2,
-      title: 'Workshop: Tecniche di Scrittura Creativa',
-      date: '22 Maggio 2026',
-      time: '19:00',
-      location: 'Biblioteca Civica',
-      description: 'Impara le tecniche fondamentali della scrittura creativa con esperti del settore.',
-      status: 'upcoming',
-    },
-    {
-      id: 3,
-      title: 'Incontro con Autore Ospite',
-      date: '5 Giugno 2026',
-      time: '17:00',
-      location: 'Sala Conferenze',
-      description: 'Incontra un autore affermato e scopri il suo processo creativo.',
-      status: 'upcoming',
-    },
-    {
-      id: 4,
-      title: 'Beach Clean-Up',
-      date: '15 Marzo 2026',
-      time: '9:45',
-      location: 'Porto Rosso, zona parcheggio',
-      description: 'Stiamoorganizzando un Beach Clean-Up e abbiamo bisogno di te! Non serve esperienza, basta solo la voglia di fare la differenza.',
-      status: 'special',
-      details: {
-        subtitle: '𝑒̀ 𝑢𝑛 𝑚𝑎𝑟𝑒 𝑑𝑖 𝑟𝑖𝑓𝑢𝑡𝑖 𝑑𝑖 𝑐𝑢𝑖 𝑝𝑜𝑠𝑠𝑖𝑎𝑚𝑜 𝑓𝑎𝑟𝑒 𝑎 𝑚𝑒𝑛𝑜!',
-        whatToBring: 'Nulla, provvederemo noi a fornire gratuitamente guanti, pinze e buste.',
-        refreshment: 'A fine pulizia, per tutti i partecipanti ci sarà un piccolo rinfresco offerto da @piazzadispagnacafe 🍹💙',
-        contact: 'Scrivici in DM per confermare la tua presenza. 👇🏻📩'
-      }
-    },
-    {
-      id: 5,
-      title: 'Club di Lettura: "Classici del Novecento"',
-      date: '12 Aprile 2026',
-      time: '17:00',
-      location: 'Centro Culturale',
-      description: 'Discussione e analisi di capolavori della letteratura italiana del Novecento.',
-      status: 'past',
-    },
-  ];
+import type { SiteEvent } from "@/content/types";
+import { events } from "@/content";
 
+export default function Eventi() {
   const upcomingEvents = events.filter((e) => e.status === 'upcoming');
   const specialEvents = events.filter((e) => e.status === 'special');
   const pastEvents = events.filter((e) => e.status === 'past');
 
-  const EventCard = ({ event }: { event: typeof events[0] }) => (
+  const EventCard = ({ event }: { event: SiteEvent }) => (
     <div className="bg-white border border-slate-200 rounded-xl p-6 hover:shadow-md transition-all duration-200">
       <div className="flex justify-between items-start mb-4">
         <div>
@@ -91,7 +40,7 @@ export default function Eventi() {
     </div>
   );
 
-  const SpecialEventCard = ({ event }: { event: typeof events[0] }) => (
+  const SpecialEventCard = ({ event }: { event: SiteEvent }) => (
     <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border-2 border-cyan-200 rounded-xl p-8 hover:shadow-lg transition-all duration-200">
       <div className="mb-6">
         <h3 className="text-3xl font-bold text-slate-900 mb-2">{event.title}</h3>

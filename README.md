@@ -2,9 +2,23 @@
 
 Sito ufficiale del gruppo letterario Sadaga. Realizzato con Next.js, React, TypeScript e Tailwind CSS.
 
+## Aggiornare testi ed eventi (senza codice)
+
+I contenuti del sito sono in **`content/*.json`**. Puoi modificarli da GitHub (interfaccia web) oppure in locale.
+
+- Guida passo-passo per editor non tecnici: **[content/GUIDA_CONTENUTI.md](content/GUIDA_CONTENUTI.md)**
+- Controllo errori prima del deploy: `npm run validate:content`
+
+Dopo ogni commit su `main`, GitHub Actions valida i JSON, fa il build e pubblica il sito.
+
 ## Struttura del Progetto
 
 ```
+├── content/
+│   ├── events.json       # Eventi (pagina /eventi)
+│   ├── chi-siamo.json    # Testi Chi siamo
+│   ├── books.json        # Libri in home
+│   └── social.json       # Link social
 ├── app/
 │   ├── layout.tsx          # Layout principale con navbar e footer
 │   ├── page.tsx            # Home page

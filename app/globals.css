@@ -8,8 +8,49 @@
   box-sizing: border-box;
 }
 
-html {
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+html:not(.lenis) {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.gallery-marquee-mask {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+.gallery-marquee-track {
+  animation: gallery-marquee-scroll linear infinite;
+}
+
+@keyframes gallery-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-marquee-track {
+    animation: none;
+  }
 }
 
 body {

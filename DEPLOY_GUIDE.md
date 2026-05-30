@@ -42,13 +42,18 @@ git push -u origin main
 
 1. Vai su **Settings** del tuo repository
 2. Seleziona **Pages** nel menu sinistro
-3. Sotto "Build and deployment":
-   - Scegli **Deploy from a branch**
-   - Branch: seleziona `main`
-   - Cartella: `/root`
-4. Clicca **Save**
+3. Sotto **Build and deployment** → **Source**:
+   - Scegli **GitHub Actions** (non "Deploy from a branch")
+4. Salva
 
-GitHub genererà automaticamente il sito all'indirizzo: `https://USERNAME.github.io`
+Il workflow `.github/workflows/deploy.yml` pubblica la cartella `out/` dopo ogni push su `main`.
+
+URL tipico: `https://USERNAME.github.io/sadaga.github.io/` (con `basePath` configurato in `next.config.js`)
+
+### Permessi per chi aggiorna i contenuti
+
+1. **Settings** → **Collaborators** → aggiungi le persone con ruolo **Write**
+2. Per modificare solo testi/eventi senza programmare, vedi **[content/GUIDA_CONTENUTI.md](content/GUIDA_CONTENUTI.md)**
 
 ## Step 6: Abilitare GitHub Actions (Opzionale ma Consigliato)
 
@@ -61,20 +66,27 @@ Ogni volta che fai un `git push`:
 2. Genera i file statici in `out/`
 3. Pubblica il sito
 
-## Step 7: Deployments Futuri
+## Step 7: Aggiornare contenuti (eventi, testi, social)
 
-Dopo il setup iniziale, per aggiornare il sito:
+### Da browser (consigliato per non programmatori)
+
+1. Apri `content/events.json` (o altri file in `content/`) su GitHub
+2. Clicca **Edit** (matita), modifica, **Commit changes** su `main`
+3. Attendi 2–5 minuti e controlla **Actions** (deve essere verde)
+
+Dettagli, esempi e regole JSON: **[content/GUIDA_CONTENUTI.md](content/GUIDA_CONTENUTI.md)**
+
+### Da computer (chi usa Git)
 
 ```bash
-# Modificare i file (ad es. aggiungere un nuovo evento)
-# Poi:
-
-git add .
-git commit -m "Descrizione dei cambiamenti"
+# Modifica content/*.json, poi:
+npm run validate:content   # opzionale ma utile
+git add content/
+git commit -m "Aggiornati eventi"
 git push
 ```
 
-GitHub Pages e GitHub Actions si aggiorneranno automaticamente! ✨
+Se il JSON è errato, il workflow **Deploy to GitHub Pages** fallisce al passo `Validate content JSON` e il sito non si aggiorna (così eviti pagine rotte).
 
 ## Troubleshooting
 
@@ -84,9 +96,10 @@ GitHub Pages e GitHub Actions si aggiorneranno automaticamente! ✨
 - Guarda il log di GitHub Actions (Actions tab)
 
 ### GitHub Pages mostra errore 404
-- Assicurati che il branch sia `main` (non `master`)
-- Verifica che la cartella sia `/root`
-- Clearizza la cache del browser (Ctrl+Shift+Delete)
+- Verifica che **Source** sia **GitHub Actions** (Settings → Pages)
+- Controlla che l'ultimo deploy in **Actions** sia riuscito
+- L'URL include il `basePath` (es. `/sadaga.github.io/`) se configurato in `next.config.js`
+- Svuota la cache del browser (Ctrl+Shift+Delete)
 
 ### Il deploy fallisce
 1. Vai al tab **Actions** del repository
@@ -104,9 +117,9 @@ GitHub Pages e GitHub Actions si aggiorneranno automaticamente! ✨
 
 Una volta online, puoi:
 
-✅ Aggiornare il tuo profilo Instagram/YouTube nei social  
-✅ Aggiungere gli URL reali dei social nel file `app/social/page.tsx`  
-✅ Personalizzare gli eventi in `app/eventi/page.tsx`  
-✅ Cambiare colori e stile in `tailwind.config.ts`
+✅ Aggiornare eventi in `content/events.json`  
+✅ Aggiornare link social in `content/social.json`  
+✅ Modificare testi Chi siamo in `content/chi-siamo.json`  
+✅ Cambiare colori e stile in `tailwind.config.ts` (serve chi conosce il codice)
 
 **Buon lavoro con Sadaga!** 🎉📚

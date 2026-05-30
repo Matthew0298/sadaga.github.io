@@ -1,9 +1,14 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const contentDir = join(root, "content");
+const publicGalleryDir = join(root, "public", "gallery");
+const incomingGalleryDir = join(root, "gallery", "incoming");
+const MAX_GALLERY_PHOTOS = 50;
+const GALLERY_ORIENTATIONS = new Set(["landscape", "portrait", "square"]);
+const IMAGE_EXT = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
 const EVENT_STATUSES = new Set(["upcoming", "past", "special"]);
 const SOCIAL_IDS = new Set(["instagram", "youtube", "tiktok"]);
@@ -176,15 +181,102 @@ function validateSocial(data) {
   }
 }
 
+function countIncomingGalleryFiles() {
+  try {
+    return readdirSync(incomingGalleryDir).filter((name) => {
+      if (name.startsWith(".") || name === "README.md") return false;
+      const ext = name.slice(name.lastIndexOf(".")).toLowerCase();
+      return IMAGE_EXT.has(ext);
+    }).length;
+  } catch {
+    return 0;
+  }
+}
+
+function validateGallery(data) {
+  if (typeof data !== "object" || data === null) {
+    fail("gallery.json deve essere un oggetto.");
+    return;
+  }
+
+  requireString(data, "title", "gallery.json");
+  requireString(data, "subtitle", "gallery.json");
+
+  if (!Array.isArray(data.photos)) {
+    fail('gallery.json: "photos" deve essere un array.');
+    return;
+  }
+
+  if (data.photos.length > MAX_GALLERY_PHOTOS) {
+    fail(
+      `gallery.json: massimo ${MAX_GALLERY_PHOTOS} foto (trovate ${data.photos.length}). Esegui npm run gallery:process.`
+    );
+  }
+
+  const incomingCount = countIncomingGalleryFiles();
+  if (incomingCount > MAX_GALLERY_PHOTOS) {
+    fail(
+      `gallery/incoming/: massimo ${MAX_GALLERY_PHOTOS} file immagine (trovati ${incomingCount}).`
+    );
+  }
+
+  const ids = new Set();
+
+  for (const [index, photo] of data.photos.entries()) {
+    const label = `gallery.json [foto ${index + 1}]`;
+
+    if (typeof photo !== "object" || photo === null) {
+      fail(`${label}: deve essere un oggetto.`);
+      continue;
+    }
+
+    requireString(photo, "id", label);
+    requireString(photo, "src", label);
+    requireString(photo, "alt", label);
+
+    if (ids.has(photo.id)) {
+      fail(`${label}: id "${photo.id}" duplicato.`);
+    } else {
+      ids.add(photo.id);
+    }
+
+    if (typeof photo.width !== "number" || photo.width < 1) {
+      fail(`${label}: "width" deve essere un numero positivo.`);
+    }
+    if (typeof photo.height !== "number" || photo.height < 1) {
+      fail(`${label}: "height" deve essere un numero positivo.`);
+    }
+    if (!GALLERY_ORIENTATIONS.has(photo.orientation)) {
+      fail(`${label}: "orientation" deve essere landscape, portrait o square.`);
+    }
+
+    const fileName = photo.src.split("/").pop();
+    const filePath = join(publicGalleryDir, fileName);
+    if (!fileName || !existsSync(filePath)) {
+      fail(
+        `${label}: file mancante public/gallery/${fileName ?? "?"}. Esegui: npm run gallery:process`
+      );
+    }
+  }
+
+  if (incomingCount > 0 && data.photos.length === 0) {
+    fail(
+      `gallery/incoming/ contiene ${incomingCount} foto ma gallery.json è vuoto. Esegui: npm run gallery:process`
+    );
+  }
+}
+
 const events = readJson("events.json");
 const books = readJson("books.json");
 const chiSiamo = readJson("chi-siamo.json");
 const social = readJson("social.json");
+const gallery = readJson("gallery.json");
 
 if (events) validateEvents(events);
 if (books) validateBooks(books);
 if (chiSiamo) validateChiSiamo(chiSiamo);
 if (social) validateSocial(social);
+if (gallery) validateGallery(gallery);
 
 if (process.exitCode === 1) {
   console.error("\nCorreggi i file in content/ e riprova: npm run validate:content\n");

@@ -1,6 +1,8 @@
 node_modules/
 .next/
 out/
+public/gallery/*
+!public/gallery/.gitkeep
 build/
 *.log
 .DS_Store

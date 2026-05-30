@@ -62,3 +62,22 @@ export type SocialPageContent = {
     bullets: string[];
   };
 };
+
+export type GalleryOrientation = "landscape" | "portrait" | "square";
+
+export type GalleryPhoto = {
+  id: string;
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  orientation: GalleryOrientation;
+  sourceFile?: string;
+};
+
+export type GalleryContent = {
+  title: string;
+  subtitle: string;
+  maxPhotos: number;
+  photos: GalleryPhoto[];
+};

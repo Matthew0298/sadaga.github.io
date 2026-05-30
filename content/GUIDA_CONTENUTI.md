@@ -76,8 +76,37 @@ Esempio: aggiungere un evento.
 | `content/chi-siamo.json` | Pagina **Chi siamo** |
 | `content/books.json` | Libri consigliati in **Home** |
 | `content/social.json` | Pagina **Social** (link Instagram, YouTube, TikTok) |
+| Cartella **`gallery/incoming/`** | Galleria foto in **Home** (scorrimento automatico) |
+| `gallery/gallery.config.json` | Titolo e sottotitolo della galleria in home |
 
 Modelli completi e regole: cartella `content/schemas/` (riferimento per chi ha dubbi sui campi).
+
+---
+
+## Galleria foto (Home)
+
+Le foto **non** si modificano in un JSON a mano: si mettono nella cartella **`gallery/incoming/`** sul repository.
+
+### Passi
+
+1. Su GitHub apri **`gallery`** → **`incoming`**.
+2. **Add file** → carica le immagini (JPG, PNG o WebP).
+3. Commit su `main`.
+4. Attendi il deploy verde in **Actions** (2–5 minuti).
+
+Il sito le ridimensiona da solo (anche se sono ~2 MB o verticali/orizzontali) e mostra al massimo **50** foto (se ne carichi di più, restano le 50 più recenti).
+
+### Consigli
+
+| Cosa | Dettaglio |
+|------|-----------|
+| Nomi file | Es. `workshop-aprile-02.jpg` (aiuta la descrizione per chi non vede l’immagine) |
+| Orientamento | Verticale o orizzontale: entrambi vanno bene |
+| Dimensione originale | Anche 2 MB per foto è accettabile; online saranno molto più leggere |
+| Rimuovere una foto | Elimina il file da `gallery/incoming/` e fai commit |
+| Titolo sezione | Modifica `gallery/gallery.config.json` |
+
+**Non** modificare i file in `public/gallery/`: sono creati in automatico dal deploy.
 
 ---
 

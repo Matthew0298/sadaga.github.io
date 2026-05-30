@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
-import { bookRecommendations } from "@/content";
+import { bookRecommendations, gallery } from "@/content";
+import GalleryMarquee from "./components/GalleryMarquee";
 import ScrollReveal from "./components/ScrollReveal";
 
 export default function Home() {
@@ -106,6 +107,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <GalleryMarquee
+        title={gallery.title}
+        subtitle={gallery.subtitle}
+        photos={gallery.photos}
+      />
 
       <section className="relative w-screen left-1/2 right-1/2 -mx-[50vw] bg-slate-50 py-24 sm:py-32">
         <div className="mx-auto max-w-6xl px-6 sm:px-8">
